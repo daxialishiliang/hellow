@@ -1,31 +1,30 @@
 /*
-		运算符：
-				就是对常量和变量进行操作的符号。
-				
-		分类：算数运算符，赋值运算符，比较运算符，逻辑运算符，位运算符，三目运算符
+	赋值运算符：
+	
+			基本的赋值运算符：=
+						把“=右边的数据赋值给左边。
 			
-		算数运算符：
-				+，-，*，/，%，++，--
-		注意事项：
-				A：整数相/只能得到整数。如果想得到小数，必须把数据变化为浮点数类型
-				B：/获得的是出发操作的商，%获取的是除法操作的余数
+			拓展的赋值运算符：+=，-=，*=，/=，%=
+						+=把左边和右边做加法，然后赋值给左边。
 */
-class OperatorDemo {
-		public static void main(String[]args){
-				//定义变量
-				int x=3;//把3赋值给int类型的变量x
-				int y=4;
+class OperatorDemo{
+		public static void main(String[] args){
+				//定义一个变量
+				int x=10;
 				
-				System.out.println(x+y);
-				System.out.println(x-y);
-				System.out.println(x*y);
-				System.out.println(x/y);//整数相除只能得到整数
-			    //我就想得到小数？
-				//只需要把操作的数据中任意的一个数据变为浮点数
-				System.out.println(x*1.0/y);
+				//其他用法
+				int a,b;
+				a=b=10;
+				System.out.println(a);
+				System.out.println(b);
+				System.out.println("-----------");
 				
-				//%的应用
-				System.out.println(x%y);//得到的是余数
-		}
+				//定义一个变量
+                 int y=10;
+				 y +=20;
+				 System.out.println(y);
 
-}				
+				}
+
+}						
+			
