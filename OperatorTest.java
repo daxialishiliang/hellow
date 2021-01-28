@@ -1,26 +1,44 @@
-/*
-		面试题：
-		
-		        short s=1;s=s+1;
-				short s=1;s+=1;
-				上面两个代码有没有问题，如果有，那里有问题。
-				
-				为什么第二个木有问题呢？
-						拓展的赋值运算符其实隐含了一个强制类型转换。
-						
-						s+=1;
-						不是等价于s=s +1;
-						而是等价于s=(s的数据类型)（s+1);
+/*面试题：
+			请自己实现两个整数变量的交换。
 */
 class OperatorTest{
 		public static void main (String[]args){
-					//short s=1;
-					//s=s+1;
-					//System.out.println(s);
-					
-					short s=1;
-					s+=1;//好像是s=s+1;
-					System.out.println(s);
+						int a=100;
+						int b=20;
+						
+						System.out.println("a:"+a+",b:"+b);
+						
+						//方式1：使用第三方变量（开发中用的）
+						/*
+						int c=a;
+						a=b;
+						b=c;
+						System.out.println("a:"+a+",b:"+b);
+						System.out.println("-------------");
+						*/
+						
+						//方式2：用位异或实现（面试用）
+						//左边：a,b,a
+						//右边：a^b
+						/*
+						a=a^b;
+						b=a^b;//a^b^b=a
+						a=a^b;//a^b^a=b
+						System.out.println("a:"+a+",b:"+b);
+						*/
+						
+						//方式3：用变量相加的做法
+						/*
+						a=a+b;//a=30
+						b=a-b;//b=10
+						a=a-b;//a=20
+						System.out.println("a:"+a+",b:"+b);
+						*/
+						
+						//方式4：一句话搞定
+						b=(a+b)-(a=b);//b=30-20=10,a=20
+						System.out.println("a:"+a+",b:"+b);
 		}
 
-}						
+}			
+		
