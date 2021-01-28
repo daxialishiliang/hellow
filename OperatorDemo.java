@@ -1,53 +1,55 @@
 /*
-			逻辑运算符：
-						&，|,^,!
-						&&,||
-			特点：
-					逻辑运算符一般用于连接boolean 类型的表达式或者值。
-					表达式：就是用运算符把常量或者变量连接起来的复合java语法的式子。
-							算数表达式：a+b
-							比较表达式：a==b
+			位运算符：
+					&，|，^,~
+					<<>>,>>>
 			
-			结论：
-						&逻辑与：有false则false。
-						|逻辑或：有true则true。
-						^逻辑异或：相同为false，不同为true.
-								举例：情侣关系。男男，男女，女男，女女
-						！逻辑非：非false则true，非true则false。
-								特点：偶数个不改变本身。
+			注意：
+					要做位运算，首先要把数据转换为二进制。
 */
 class OperatorDemo{
-			public static void main (String[] args){
+		public static void main(String[]args){
+					//&,|,^,~
+					
 					int a=3;
 					int b=4;
-					int c=5;
-					//&逻辑与
-					System.out.println((a>b)&(a>c));//false&false=false
-					System.out.println((a>b)&(a<c));//false&true=false
-					System.out.println((a<b)&(a>c));//true&false=false
-					System.out.println((a<b)&(a<c));//true&true=true
-					System.out.println("---------------");
 					
-					//|逻辑或
-					System.out.println((a>b)|(a>c));//false|false=false
-					System.out.println((a>b)|(a<c));//false|true=true
-					System.out.println((a<b)|(a>c));//true|false=true
-					System.out.println((a<b)|(a<c));//true|true=true
-					System.out.println("----------------");
-					
-					//^逻辑异或
-					System.out.println((a>b)^(a>c));//false^false=false
-                    System.out.println((a>b)^(a<c));//false^true=true	
-					System.out.println((a<b)^(a>c));//true^false=true
-					System.out.println((a<b)^(a<c));//true^true=false
-					
-					//！逻辑非
-					System.out.println(!(a>b));//!false=true
-					System.out.println(!(a<b));//!true=false
-					System.out.println(!!(a>b));//!!false=false
-					System.out.println(!!!(a>b));//!!!false=true
-					
-					
-					
-			}
-}								
+					System.out.println(3&4);
+					System.out.println(3|4);
+					System.out.println(3^4);
+					System.out.println(~3);
+		}
+}					
+/*
+           分析：因为是位运算，所以我们必须先把数据换算成二进制。
+		   
+		   3的二进制：11
+		             00000000    00000000  00000000  00000011
+		   4的二进制：100
+		             00000000    00000000  00000000  00000100
+			&位与运算：有0则0。
+			         00000000     00000000  00000000  00000011
+			  &00000000          000000000   000000000   00000100
+			  ------------------------------------------------
+			         00000000  00000000   00000000  00000000
+					 结果是：0
+			|位或运算：有1则1。
+			         00000000 00000000 00000000 00000011
+				|00000000 00000000 00000000 00000100
+			      ----------------------------------------------
+				  00000000 00000000 00000000 00000111
+				  结果是：7
+			^位异或运算：相同则0，不同则1.
+			      00000000  00000000   00000000   00000011
+				&00000000   00000000  00000000  000000100
+				-----------------------------------------------
+				 00000000 00000000 00000000  00000111
+				 结果是：7
+			~按位取反运算符：0变1,1变0
+			      00000000 00000000 00000000 00000011
+				~11111111  11111111  11111111  111111100（补码）
+				
+				补码：11111111 11111111 11111111 11111100
+				反码：11111111 11111111 11111111 11111011
+				原码：100000000 00000000 00000000 00000100
+				    结果是：-4
+*/					
