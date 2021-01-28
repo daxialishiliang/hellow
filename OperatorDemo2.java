@@ -1,47 +1,34 @@
 /*
-		++,--运算符：
-		      单独使用：
-						放在操作数的前面和后面效果一样。
-			  参与预算使用：
-					放在操作数的前面，先自增或者自减，然后再参与运算。
-					放在操作数的后面，先参与运算，再自增或者自减。
-		作用：就是对变量进行自增1或者自减1.
+		&&和&的区别？同理||和|的区别？
+					A：最终结果一样。
+					B：&&具有短路效果。左边是false,右边不执行。
+					
+		开发中常用的逻辑运算符：
+		&&，||，！！
 */
 class OperatorDemo2{
 			public static void main(String[] args){
-					//定义两个变量
-					int x=3;
-					int y=4;
-					//字符串的拼接
-					//System.out.println("x:"+x);
-					//System.out.println("y:"+y);
-					System.out.println("x:"+x+",y:"+y);
-					
-					//单独使用
-					//x++；
-					//y--;
-					++x;
-					--y;
-					//System.out.println(x);
-					System.out.println("x:"+x+",y:"+y);
-					//意外的类型，常量是不可以这样做得
-					//System.out.println(10++);
-					
-				    System.out.println("---------------------------------------");
-					//参与运算使用
-					int a=3;
-					int b=4;
-					
-					//int c=a++;
-					//int d=b--;
-					
-					int c=++a;
-					int d=--b;
-					
-					System.out.println("a:"+a);//4,4
-					System.out.println("b:"+b);//3,3
-					System.out.println("c:"+c);//3,4
-					System.out.println("d:"+d);//4,3
-					
+				  int a=3;
+				  int b=4;
+				  int c=5;
+				  
+				  //&&双与
+				  System.out.println((a>b)&&(a>c));//false&&false=false
+				  System.out.println((a>b)&&(a<c));//false&&true=false
+				  System.out.println((a<b)&&(a>c));//true&&false=false
+				  System.out.println((a<b)&&(a<c));//true&&true=true
+				  System.out.println("----------");
+				  
+				  int x =3;
+				  int y=4;
+				  int b1
+				  //boolean b1=((x++==3)&(y++==4));
+                  //boolean b1=((x++==3)&&(y++==4));
+				  //boolean b1=((++x==3)&(y++==4));
+				  //boolean b1=((++x==3)&&(y++==4));
+				  System.out.println("x:"+x);
+				  System.out.println("y:"+y);
+				  System.out.println(b1);
+				 
 			}
 }		
