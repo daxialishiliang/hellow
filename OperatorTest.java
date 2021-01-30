@@ -1,44 +1,46 @@
-/*面试题：
-			请自己实现两个整数变量的交换。
+/*
+		联系：
+				获连个整数中的最大值
+			    获取三个整数中的最大值
+			比较连个整数是否相同
 */
 class OperatorTest{
-		public static void main (String[]args){
-						int a=100;
-						int b=20;
+			public static void main (String[]args){
+						//获取两个整数中的最大值
+						int x=100;
+						int y=200;
 						
-						System.out.println("a:"+a+",b:"+b);
+						int max =(x>y?x:y);
+						System.out.println("max:"+max);
+						System.out.println("---------");
+						//获取三个整数中的最大值
+						int a=10;
+						int b=30;
+						int c=20;
 						
-						//方式1：使用第三方变量（开发中用的）
-						/*
-						int c=a;
-						a=b;
-						b=c;
-						System.out.println("a:"+a+",b:"+b);
-						System.out.println("-------------");
-						*/
+						//分两步：
+					    //a：先比较a,b的最大值
+					    //B；拿a,b的最大值在和c进行比较
+						int temp=((a>b)?a:b);
+						//System.out.println(temp);
+						int max1=(temp>c?temp:c);
+						System.out.println("max1:"+max1);
+					    //一步搞定
+						//int max2=(a>b)?((a>c)?a:c):((b>c)?b:c);
+						//这种做法不推荐。
+					    //int max2=a>b?a>c?a:c:b?c?b:c;
+						//System.out.println("max2:"+max2);
+						System.out.println("--------");
 						
-						//方式2：用位异或实现（面试用）
-						//左边：a,b,a
-						//右边：a^b
-						/*
-						a=a^b;
-						b=a^b;//a^b^b=a
-						a=a^b;//a^b^a=b
-						System.out.println("a:"+a+",b:"+b);
-						*/
+						//比较两个整数是否相同
+						int m=100;
+						int n=200;
 						
-						//方式3：用变量相加的做法
-						/*
-						a=a+b;//a=30
-						b=a-b;//b=10
-						a=a-b;//a=20
-						System.out.println("a:"+a+",b:"+b);
-						*/
-						
-						//方式4：一句话搞定
-						b=(a+b)-(a=b);//b=30-20=10,a=20
-						System.out.println("a:"+a+",b:"+b);
-		}
-
+						//boolean flag=(m==n)?true:false;
+						boolean flag =(m==n);
+						System.out.println(flag);
+					
+					
+			}
 }			
-		
+			
